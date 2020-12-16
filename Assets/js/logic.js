@@ -1,5 +1,5 @@
 // timer countsdown from button click
-var count = 30;
+var count = 5;
 var counter = null;
 var startButton = document.getElementById("start");
 
