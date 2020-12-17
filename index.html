@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Coding Quiz</title>
 
+    
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
 
@@ -25,8 +26,10 @@
         <button id="start" >Start Quiz</button>
       </div>
 
-      <div id="questions" class="hide">
-        <h2 id="question-title"></h2>
+      <div id=test_status></div>
+      <!-- changed id to test -->
+      <div id="test" class="hide">
+        <h2 id="questionTitle"></h2>
         <div id="choices" class="choices"></div>
       </div>
 
@@ -42,7 +45,12 @@
       <div id="feedback" class="feedback hide"></div>
     </div>
 
+    <!-- JQuery CDN link  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Questions link -->
     <script src="./assets/js/questions.js"></script>
+    <!-- Javascript Link -->
     <script src="./assets/js/logic.js"></script>
+    
   </body>
 </html>
