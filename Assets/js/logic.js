@@ -1,5 +1,5 @@
 // timer countdown from button click / hide start screen div
-var count = 5;
+var count = 100;
 var counter = null;
 var startButton = document.getElementById("start");
 
@@ -23,6 +23,13 @@ function timer() {
 $(document).ready(function(){
   $("#start").click(function(){
     $("#start-screen").hide();
+  });
+});
+
+// Show test on click. JQuery
+$(document).ready(function(){
+  $("#start").click(function(){
+    $("#test").show();
   });
 });
 
@@ -99,14 +106,14 @@ function showQuestion(){
   test = get("test");
   if(progress >= codeQuestions.length){
     // I wanted to append to div, but it doesn't work
-    test.innerHTML = "You answered "+correct+" out of "+codeQuestions.length+" questions correct";
+    questionTitle.innerHTML = "You answered "+correct+" out of "+codeQuestions.length+" questions correct";
     get("test_status").innerHTML = "Test completed";
     progress = 0;
     correct = 0;
 
     return false;
   }
-// counter on screen in "test_status" div
+  // counter on screen in "test_status" div
   get("test_status").innerHTML = "Question "+(progress+1)+" of "+codeQuestions.length;
   
   question = codeQuestions[progress].question;
@@ -116,13 +123,13 @@ function showQuestion(){
   chD = codeQuestions[progress].d;
 
   // shows question
-  test.innerHTML = "<h3>"+question+"</h3>";
+  questionTitle.innerHTML = "<h3>"+question+"</h3>";
 
-  test.innerHTML += "<label> <input type='radio' name='choices' value='A'> "+chA+"</label><br>";
-  test.innerHTML += "<label> <input type='radio' name='choices' value='B'> "+chB+"</label><br>";
-  test.innerHTML += "<label> <input type='radio' name='choices' value='C'> "+chC+"</label><br><br>";
-  test.innerHTML += "<label> <input type='radio' name='choices' value='D'> "+chD+"</label><br><br>";
- test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='A'> "+chA+"</label><br>";
+  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='B'> "+chB+"</label><br>";
+  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='C'> "+chC+"</label><br><br>";
+  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='D'> "+chD+"</label><br><br>";
+  questionTitle.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
 }
 
 function checkAnswer(){
@@ -132,7 +139,7 @@ function checkAnswer(){
       choice = choices[i].value;
     }
   }
-  if(choice == questions[pos].answer){
+  if(choice == codeQuestions[pos].answer){
     correct++;
   }
   pos++;
