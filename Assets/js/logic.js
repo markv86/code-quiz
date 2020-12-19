@@ -1,7 +1,11 @@
+
+
 // timer countdown from button click / hide start screen div
-var count = 100;
+var count = 10;
 var counter = null;
 var startButton = document.getElementById("start");
+
+// Functions
 
 function timer() {
   count = count-1;
@@ -13,11 +17,17 @@ function timer() {
      clearInterval(counter);
      alert("Game Over");
   }
+  // stop timer from going past zero
+  if (count >= 0) {
+    
+  }
+
 }
+
 // Event Listener to start the timer
-  startButton.addEventListener("click", function() {
-    counter = setInterval(timer, 1000);
-  });
+startButton.addEventListener("click", function() {
+  counter = setInterval(timer, 1000);
+});
 
 // Hide Start-screen on click of the timer. JQuery
 $(document).ready(function(){
@@ -67,7 +77,7 @@ var codeQuestions = [
       b: "curly braces",
       c: "parenthesis",
       d: "square brackets",
-      answer: "b"
+      answer: "B"
     },
   {
       question: "Arrays in Javascript can be used to store _____.",
@@ -75,7 +85,7 @@ var codeQuestions = [
       b: "other arrays",
       c: "booleans",
       d: "all the above",
-      answer: "d"
+      answer: "D"
     },
   {
     question: "String values must be enclosed within _____ when being assigned to a variable.",
@@ -83,7 +93,7 @@ var codeQuestions = [
     b: "curly braces",
     c: "quotes",
     d: "parenthesis",
-    answer: "d"
+    answer: "D"
     },
   {
     question: "A very useful tool used during development and debugging for printing content to the debugger is _____.",
@@ -91,7 +101,7 @@ var codeQuestions = [
     b: "terminal / bash",
     c: "for loops",
     d: "console.log",
-    answer: "d"
+    answer: "D"
     }
 ];
 // -------------------------------------------------------------------------------
@@ -101,21 +111,34 @@ function get(x) {
 }
 // -------------------------------------------------------------------------------
 // Function to show question on page
-// *****NOT WORKING YET*****
 function showQuestion(){
   test = get("test");
   if(progress >= codeQuestions.length){
-    // I wanted to append to div, but it doesn't work
+    // I wanted to append to div, but it didn't work
     questionTitle.innerHTML = "You answered "+correct+" out of "+codeQuestions.length+" questions correct";
     get("test_status").innerHTML = "Test completed";
+
+     // set correct questions answered to final-score
+     get('final-score').textContent = correct;
+
+  // clear game when timer or quiz is finishes
+
+    //  reset score
     progress = 0;
     correct = 0;
+
+    // at test complete, hide question title, show id="end-screen"
+    $(document).ready(function(){
+      $("#end-screen").show();
+      });
+    clearInterval(counter,"") 
 
     return false;
   }
   // counter on screen in "test_status" div
   get("test_status").innerHTML = "Question "+(progress+1)+" of "+codeQuestions.length;
   
+ 
   question = codeQuestions[progress].question;
   chA = codeQuestions[progress].a;
   chB = codeQuestions[progress].b;
@@ -124,14 +147,14 @@ function showQuestion(){
 
   // shows question
   questionTitle.innerHTML = "<h3>"+question+"</h3>";
-
   questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='A'> "+chA+"</label><br>";
   questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='B'> "+chB+"</label><br>";
-  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='C'> "+chC+"</label><br><br>";
-  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='D'> "+chD+"</label><br><br>";
+  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='C'> "+chC+"</label><br>";
+  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='D'> "+chD+"</label><br>";
   questionTitle.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
 }
 
+// check for correct answer from question array
 function checkAnswer(){
   choices = document.getElementsByName("choices");
   for(var i=0; i<choices.length; i++){
@@ -139,11 +162,19 @@ function checkAnswer(){
       choice = choices[i].value;
     }
   }
-  if(choice == codeQuestions[pos].answer){
+  if(choice == codeQuestions[progress].answer){
     correct++;
   }
-  pos++;
+  // decrement 10 seconds if correct answer
+  if(choice != codeQuestions[progress].answer){
+    count = count-10
+  }
+  progress++;
   showQuestion();
 }
 
 document.getElementById("start").addEventListener("click",showQuestion);
+
+
+// store score at highscoles.html
+

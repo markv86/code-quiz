@@ -9,11 +9,13 @@ body {
     transition: color 0.1s;
   }
   
-  a:hover {
-    color: #8570a5;
+  label:hover {
+    color: white;
+    background-color: tomato;
+    
   }
   
-  button {
+  button, label {
     display: inline-block;
     margin: 5px;
     cursor: pointer;
@@ -26,11 +28,15 @@ body {
     transition: background-color 0.1s;
   }
   
-  button:hover {
+/* radio button styling */
+
+
+
+  label, button:hover {
     background-color: #8570a5;
   }
   
-  .choices button {
+  .choices button, label {
     display: block;
   }
   
@@ -86,4 +92,6 @@ body {
     top: 10px;
     right: 10px;
   }
+  
+ 
   
