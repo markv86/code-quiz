@@ -1,3 +1,8 @@
+// keep timer from going past zero
+// local storage
+// log scores and initials in highscores.html
+
+// --------------------------------------------------------------
 
 
 // timer countdown from button click / hide start screen div
@@ -5,8 +10,7 @@ var count = 100;
 var counter = null;
 var startButton = document.getElementById("start");
 
-// Functions
-
+// Timer function
 function timer() {
   count = count-1;
   console.log(count);
@@ -19,9 +23,7 @@ function timer() {
   }
   // stop timer from going past zero
   if (count >= 0) {
-    
   }
-
 }
 
 // Event Listener to start the timer
@@ -42,9 +44,6 @@ $(document).ready(function(){
     $("#test").show();
   });
 });
-
-
-// -------------------------------------------------------------------------------
 
 // setup variables for questions
 var progress = 0
@@ -121,6 +120,13 @@ function showQuestion(){
      // set correct questions answered to final-score
      get('final-score').textContent = correct;
 
+     // store score at highscores.html
+
+    localStorage.highScore=(correct)
+
+    console.log(localStorage)
+
+
   // clear game when timer or quiz is finishes
 
     //  reset score
@@ -176,5 +182,4 @@ function checkAnswer(){
 document.getElementById("start").addEventListener("click",showQuestion);
 
 
-// store score at highscoles.html
 

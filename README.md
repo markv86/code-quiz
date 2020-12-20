@@ -17,7 +17,7 @@ Although incomplete, I learned a lot of about time management, errors and syntax
 1. Select start
 2. You have 100 seconds to complete the quiz.
 3. Each incorrect answer will result in a 10 second penalty.
-4. At completion, you would be able to log your high score.
+4. At completion, you would be able to log your high score. Your scores will stay      until you clear them
 
 
 
