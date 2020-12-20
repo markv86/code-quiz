@@ -1,7 +1,7 @@
 
 
 // timer countdown from button click / hide start screen div
-var count = 10;
+var count = 100;
 var counter = null;
 var startButton = document.getElementById("start");
 
@@ -147,10 +147,10 @@ function showQuestion(){
 
   // shows question
   questionTitle.innerHTML = "<h3>"+question+"</h3>";
-  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='A'> "+chA+"</label><br>";
-  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='B'> "+chB+"</label><br>";
-  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='C'> "+chC+"</label><br>";
-  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='D'> "+chD+"</label><br>";
+  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='A'> "+chA+"</label>";
+  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='B'> "+chB+"</label>";
+  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='C'> "+chC+"</label>";
+  questionTitle.innerHTML += "<label> <input type='radio' name='choices' value='D'> "+chD+"</label>";
   questionTitle.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
 }
 
