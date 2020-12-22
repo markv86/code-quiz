@@ -7,6 +7,24 @@
     <title>Highscores</title>
 
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <!-- table styling -->
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      </style>
   </head>
 
   <body>
@@ -14,7 +32,7 @@
       <h1>Highscores</h1>
       <ol id="highscores"></ol>
 
-      <div class=container>
+
 
       </div>
 
@@ -22,6 +40,9 @@
       <button id="clear">Clear Highscores</button>
     </div>
 
+    <!-- JQuery Link -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Javascript Link -->
     <script src="./assets/js/scores.js"></script>
   </body>
 </html>

@@ -122,8 +122,9 @@ function showQuestion(){
 
      // store score at highscores.html
 
-    localStorage.highScore=(correct)
-
+    // send score to local storage
+    // localStorage.setItem("highScore", correct)
+    localStorage.setItem("highScore", JSON.stringify([correct]))
     console.log(localStorage)
 
 
